@@ -111,6 +111,7 @@ project-root/
 ├── data/
 │   ├── datasets/  # Training datasets
 │   └── preprocessed/  # Processed data
+│   └── keypoints/
 ├── docs/
 ├── tests/
 │   ├── unit/  # Unit tests
