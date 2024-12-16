@@ -7,7 +7,7 @@ sys.path.append(root_dir)
 
 from utils.utils import *
 from utils.constants import *
-from utils.text_to_speech import text_to_speech
+from src.core.tts.text_to_speech import text_to_speech
 
 import cv2
 import numpy as np
