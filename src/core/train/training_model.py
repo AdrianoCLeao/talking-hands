@@ -5,8 +5,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.join(current_dir, '..')
 sys.path.append(root_dir)
 
-from utils.utils import get_word_ids, get_sequences_and_labels
-from utils.constants import *
+from src.utils.utils import get_word_ids, get_sequences_and_labels
+from src.utils.constants import *
 
 import numpy as np
 from model import get_model
