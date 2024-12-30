@@ -7,8 +7,8 @@ sys.path.append(root_dir)
 
 import pandas as pd
 from mediapipe.python.solutions.holistic import Holistic
-from utils.utils import *
-from utils.constants import *
+from src.utils.utils import *
+from src.utils.constants import *
 
 def create_keypoints(word_id, words_path, hdf_path):
     data = pd.DataFrame([])

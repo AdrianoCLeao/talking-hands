@@ -5,8 +5,8 @@ current_dir = os.path.dirname(os.path.abspath(__file__))
 root_dir = os.path.join(current_dir, '..')
 sys.path.append(root_dir)
 
-from utils.utils import *
-from utils.constants import *
+from src.utils.utils import *
+from src.utils.constants import *
 from src.core.tts.text_to_speech import text_to_speech
 
 import cv2

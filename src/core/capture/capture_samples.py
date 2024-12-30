@@ -8,8 +8,8 @@ sys.path.append(root_dir)
 import cv2
 import numpy as np
 from mediapipe.python.solutions.holistic import Holistic
-from utils.utils import create_folder, draw_keypoints, mediapipe_detection, save_frames, there_hand
-from utils.constants import FONT, FONT_POS, FONT_SIZE, ROOT_PATH, FRAME_ACTIONS_PATH
+from src.utils.utils import create_folder, draw_keypoints, mediapipe_detection, save_frames, there_hand
+from src.utils.constants import FONT, FONT_POS, FONT_SIZE, ROOT_PATH, FRAME_ACTIONS_PATH
 from datetime import datetime
 
 def capture_sample(path, margin_frame=2, min_cant_frames=5):

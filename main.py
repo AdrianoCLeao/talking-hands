@@ -6,11 +6,11 @@ from PyQt5.QtCore import QTimer, Qt
 from PyQt5.uic import loadUi
 
 import numpy as np
-from keras.models import load_model # type: ignore
+from keras.models import load_model 
 from mediapipe.python.solutions.holistic import Holistic
-from utils.utils import *
-from utils.constants import *
-from utils.text_to_speech import text_to_speech
+from src.utils.utils import *
+from src.utils.constants import *
+from src.core.tts import text_to_speech
 
 class VideoRecorder(QMainWindow):
     def __init__(self):
