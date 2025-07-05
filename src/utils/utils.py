@@ -101,6 +101,17 @@ def get_sequences_and_labels(words_id, model_num:int):
     for word_index, word_id in enumerate(words_id):
         hdf_path = os.path.join(KEYPOINTS_PATH, f"{word_id}.h5")
         data = pd.read_hdf(hdf_path, key='data')
+        
+        if data.empty or 'model_num' not in data.columns:
+            print(f"Warning: Skipping {word_id} - empty data or missing columns")
+            continue
+
+        if not data.empty:
+            first_keypoint_len = len(data.iloc[0]['keypoints'])
+            if first_keypoint_len != LENGHT_KEYPOINTS:
+                print(f"Warning: Skipping {word_id} - keypoints length mismatch (expected {LENGHT_KEYPOINTS}, got {first_keypoint_len})")
+                continue
+            
         for num, df_by_model_num in data.groupby('model_num'):
             print(f'model_num: {model_num}')
             print(f'num: {num}')

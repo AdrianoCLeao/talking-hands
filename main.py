@@ -10,7 +10,7 @@ from keras.models import load_model
 from mediapipe.python.solutions.holistic import Holistic
 from src.utils.utils import *
 from src.utils.constants import *
-from src.core.tts import text_to_speech
+from src.core.tts.text_to_speech import text_to_speech
 
 class VideoRecorder(QMainWindow):
     def __init__(self):
@@ -30,14 +30,12 @@ class VideoRecorder(QMainWindow):
         self.timer.start(30)
     
     def init_lsp(self):
-        # Initialize the holistic model, keypoints sequence, sentence, and frame count
         self.holistic_model = Holistic()
         self.kp_sequence, self.sentence = [], []
         self.count_frame = 0
         self.models = [load_model(MODELS_PATH[0])]
     
     def update_frame(self):
-        # Update the frame, process the video feed, and display results
         word_ids = get_word_ids(KEYPOINTS_PATH)
         ret, frame = self.capture.read()
         if not ret: return
@@ -52,7 +50,6 @@ class VideoRecorder(QMainWindow):
                 self.count_frame += 1
                 
             elif self.count_frame >= MIN_LENGHT_FRAMES:
-                # Process keypoints sequence based on frame count and load the appropriate model
                 if self.count_frame <= 7:
                     print("load model 7")
                     self.kp_sequence = pad_secuences(self.kp_sequence, 7)
@@ -91,21 +88,18 @@ class VideoRecorder(QMainWindow):
         self.lbl_video.setPixmap(QPixmap.fromImage(scaled_qImg))
 
     def start_recording(self):
-        # Start video recording
         if not self.is_recording:
             self.is_recording = True
             self.btn_start.setEnabled(False)
             self.btn_stop.setEnabled(True)
     
     def stop_recording(self):
-        # Stop video recording
         if self.is_recording:
             self.is_recording = False
             self.btn_start.setEnabled(True)
             self.btn_stop.setEnabled(False)
     
     def closeEvent(self, event):
-        # Handle the event of closing the application
         self.capture.release()
         event.accept()
 
