@@ -1,10 +1,3 @@
-import os
-import sys
-
-current_dir = os.path.dirname(os.path.abspath(__file__))
-root_dir = os.path.join(current_dir, '..')
-sys.path.append(root_dir)
-
 from src.core.train.model import get_model, get_small_dataset_model, get_lightweight_model, get_callbacks
 from src.utils.utils import get_word_ids, get_sequences_and_labels
 from src.utils.constants import *

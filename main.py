@@ -103,9 +103,12 @@ class VideoRecorder(QMainWindow):
         self.capture.release()
         event.accept()
 
-if __name__ == "__main__":
+def main():
+    """Main entry point for the application"""
     app = QApplication(sys.argv)
     window = VideoRecorder()
     window.show()
-
     sys.exit(app.exec_())
+
+if __name__ == "__main__":
+    main()
